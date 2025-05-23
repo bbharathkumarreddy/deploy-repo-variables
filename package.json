@@ -1,0 +1,23 @@
+{
+  "name": "deploy-repo-variables",
+  "version": "1.0.0",
+  "description": "Deploy Repository Variables Github / Bitbucket",
+  "scripts": {
+    "bitbucket-vars": "node src/bitbucket-vars.js",
+    "github-vars": "node src/github-vars.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbharathkumarreddy/deploy-repo-variables.git"
+  },
+  "author": "bbharathkumarreddy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bbharathkumarreddy/deploy-repo-variables/issues"
+  },
+  "homepage": "https://github.com/bbharathkumarreddy/deploy-repo-variables#readme",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "dotenv": "^16.5.0"
+  }
+}
