@@ -5,6 +5,6 @@ Deploy Repository Variables Github / Bitbucket
 
 1. Create folder "project-secrets" and create new project secret json files.
 
-# Scripts
+# Deploy
 
 `npm run bitbucket-vars -- project-secrets/bitbucket-sample-project.json`

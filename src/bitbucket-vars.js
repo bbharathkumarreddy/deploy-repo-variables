@@ -1,7 +1,8 @@
 /**
- * This script deploys environment variables to Bitbucket Cloud repositories.
+ * This script deploys deployment environment variables to Bitbucket repositories.
  * npm run bitbucket-vars -- secrets/bitbucket-sample-project.json
  */
+
 const fs = require("fs");
 const axios = require("axios");
 
