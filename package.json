@@ -18,6 +18,7 @@
   "homepage": "https://github.com/bbharathkumarreddy/deploy-repo-variables#readme",
   "dependencies": {
     "axios": "^1.9.0",
-    "dotenv": "^16.5.0"
+    "dotenv": "^16.5.0",
+    "tweetsodium": "^0.0.4"
   }
 }
