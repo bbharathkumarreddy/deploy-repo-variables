@@ -10,9 +10,7 @@ async function getEnvironments(workspace, repo, token) {
   const url = `https://api.bitbucket.org/2.0/repositories/${workspace}/${repo}/environments`;
   try {
     const res = await axios.get(url, { headers: { Authorization: `Bearer ${token}` } });
-    const envMap = Object.fromEntries(
-      res.data.values.map(env => [env.name.toLowerCase(), env.uuid])
-    );
+    const envMap = Object.fromEntries(res.data.values.map((env) => [env.name.toLowerCase(), env.uuid]));
     return envMap;
   } catch (e) {
     const msg = e.response?.data?.error?.message || e.message;
@@ -24,7 +22,7 @@ async function getVariableUUID(workspace, repo, token, envUUID, variableKey) {
   const url = `https://api.bitbucket.org/2.0/repositories/${workspace}/${repo}/deployments_config/environments/${envUUID}/variables`;
   try {
     const res = await axios.get(url, { headers: { Authorization: `Bearer ${token}` } });
-    const variable = res.data.values.find(v => v.key === variableKey);
+    const variable = res.data.values.find((v) => v.key === variableKey);
     return variable ? variable.uuid : null;
   } catch (e) {
     const msg = e.response?.data?.error?.message || e.message;
@@ -42,8 +40,8 @@ async function createOrUpdateVariable(workspace, repo, token, env, envUUID, vari
     await method(url, variable, {
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     });
     console.log(`✅ ${env} - ${variable.key}`);
   } catch (e) {
@@ -94,7 +92,9 @@ async function main() {
 
     for (const v of vars) {
       try {
-        await createOrUpdateVariable(workspace, repo, token, env, uuid, v);
+        if (!v?.skip) {
+          await createOrUpdateVariable(workspace, repo, token, env, uuid, v);
+        }
       } catch (e) {
         console.error(e.message);
       }
@@ -102,7 +102,7 @@ async function main() {
   }
 }
 
-main().catch(err => {
+main().catch((err) => {
   console.error(`Fatal error: ${err.message}`);
   process.exit(1);
 });
