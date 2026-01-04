@@ -1,3 +1,9 @@
+
+⚠️ **This repository is no longer maintained.**  ⚠️
+
+Please use the new and actively maintained version:  
+[https://github.com/bbharathkumarreddy/repo-env-sync](https://github.com/bbharathkumarreddy/repo-env-sync)
+
 # Deploy Repo Variables
 
 An open source utility for deploying environment variables/secrets to GitHub and Bitbucket repositories using JSON configuration files.
